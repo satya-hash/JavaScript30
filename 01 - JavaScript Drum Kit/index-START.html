@@ -58,9 +58,7 @@
 
     <script>
       let keys = document.querySelectorAll(".key");
-      keys.forEach((key) => key.addEventListener("transitionend", remove));
       function remove(e) {
-        if (e.propertyName !== "transform") return;
         e.target.classList.remove("playing");
       }
       document.addEventListener("keydown", (e) => {
@@ -70,6 +68,7 @@
         key.classList.add("playing");
         audio.play();
       });
+      keys.forEach((key) => key.addEventListener("transitionend", remove));
     </script>
   </body>
 </html>
